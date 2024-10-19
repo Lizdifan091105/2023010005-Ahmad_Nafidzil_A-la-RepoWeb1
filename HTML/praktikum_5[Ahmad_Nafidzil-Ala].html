@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Data Pengguna</title>
+</head>
+<body>
+    <h1>Form Data Pengguna</h1>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="pria" name="gender" value="Pria" required>
+        <label for="pria">Pria</label>
+        <input type="radio" id="wanita" name="gender" value="Wanita" required>
+        <label for="wanita">Wanita</label><br><br>
+
+        <label for="alamat">Alamat:</label>
+        <textarea id="alamat" name="alamat" rows="1" cols="50" required></textarea><br><br>
+
+        <label for="negara">Negara:</label>
+        <select id="negara" name="negara" required>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Singapura">Singapura</option>
+            <option value="Lainnya">Lainnya</option>
+        </select><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="photo">Upload Photo (Browse):</label><br>
+        <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
+
+        <label for="komment">Komentar:</label>
+        <textarea id="komment" name="komment" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
