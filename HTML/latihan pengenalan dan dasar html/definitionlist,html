@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tag Definition List Polibang</title>
+</head>
+<body>
+    <DL>
+        <DT> item pertama </DT>
+        <DD> sub item pertama </DD>
+        <DT> item kedua </DT>
+        <DD> sub item kedua </DD>
+        <DT> item ketiga </DT>
+        <DD> sub item ketiga </DD>
+    </DL>
+</body>
+</html>
