@@ -11,12 +11,12 @@ body {
     background-color: #F5EDCE;
 }
 
-/* Grid Layout Container */
+/* Flex Layout Container */
 .container {
-    display: grid;
-    grid-template-columns: 250px 1fr; /* Sidebar + Konten Utama */
-    gap: 20px;
-    max-width: 80%;
+    display: flex; /* Menggunakan Flexbox */
+    flex-wrap: wrap; /* Agar konten bisa membungkus jika ruang tidak cukup */
+    gap: 20px; /* Jarak antar elemen */
+    width: 80%;
     margin: 0 auto;
     background-color: #89C4E1;
     padding: 20px;
@@ -24,9 +24,10 @@ body {
 
 /* Sidebar */
 .sidebar {
+    flex: 0 0 250px; /* Sidebar memiliki lebar tetap 250px */
     background-color: #58287F;
     padding: 20px;
-    border-radius: 4%;
+    height: auto;
 }
 
 .logo {
@@ -36,7 +37,6 @@ body {
 
 .artikel-populer {
     background-color: white;
-    border-radius: 10%;
     padding: 10px;
 }
 
@@ -58,17 +58,19 @@ body {
 
 .artikel-populer ul li a {
     text-decoration: none;
-    color: #333;
+    color:#1A0000;
 }
 
 /* Main Area */
 .main-area {
+    flex: 1; /* Area utama memenuhi ruang tersisa */
     display: flex;
     flex-direction: column;
+    background-color: #a5cfe4;
 }
 
 .header-image {
-    width: 100%;
+    width: 730px;
     height: 300px;
     object-fit: cover;
 }
@@ -96,7 +98,7 @@ nav ul li a {
 }
 
 h1 {
-    color: #333;
+    color:black;
     margin-bottom: 15px;
 }
 
@@ -126,5 +128,6 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    grid-column: 2 / 3; /* Panjang footer mengikuti kolom konten utama saja */
+    width: 100%;
+    height: 75px;
 }
