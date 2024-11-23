@@ -46,7 +46,7 @@ img { border-radius: 3px; }
    font: 17px/36px notosans-regular, sans-serif;
    padding: 0;
    margin: 12px 5% 0;
-   color: #b4a9a9;
+   color: #d2c7c7;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .3);
 }
 
@@ -56,6 +56,8 @@ img { border-radius: 3px; }
    padding-bottom: 54px;
    margin: 0 auto;
    width: 91.66667%;
+   color: rgb(21, 20, 20);
+   font-size: 17px;
 }
 /* page */
 .page section {
@@ -80,6 +82,7 @@ header {
    width: 100%;
    background: #383232 url(../images/header-bg.jpg);
 }
+
 
 /* header logo */
 header .logo {
@@ -198,9 +201,16 @@ ul#nav li a {
 /* ------------------------------------------------------------------ */
 
 #info {
-   background: #fff url(../images/content-bg.jpg);
-   padding-top: 60px;
-   padding-bottom: 42px;
+   background: #fff url(../images/header2.jpg);
+
+   width: 100%;
+   height: auto;
+   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+   padding: 75px;
+   
+   
 }
 #info h2 {
   font: 18px/30px notosans-bold, sans-serif;
@@ -208,32 +218,19 @@ ul#nav li a {
   margin-bottom: 6px;
 }
 #info p {
-  font-size: 15px;
-  line-height: 30px
+   font: 50px/60px raleway-bold, sans-serif;
+   color: #e2dcdc;
+  text-align: center;
 }
 
-/* ------------------------------------------------------------------ */
-/* e. Works Section - Main Page
-/* ------------------------------------------------------------------ */
 
-#works {
-   background: #f5f5f5 url(../images/works-bg.jpg);
-   padding-top: 48px;
-   padding-bottom: 36px;
-   border-top: 1px solid #E3E8E8;
-   border-bottom: 1px solid #E3E8E8;
-}
-#works h1 {
-   font: 20px/36px raleway-bold, sans-serif;
-   margin-bottom: 36px;
-   color: #A1A8AF;
-}
 /* ------------------------------------------------------------------ */
 /* g. Tweets Section - Main Page
 /* ------------------------------------------------------------------ */
 
 #tweets {
    background: #f5f5f5 url(../images/tweets-bg.jpg);
+ 
    padding-top: 60px;
    padding-bottom: 30px;
    border-top: 1px solid #E3E8E8;
@@ -247,24 +244,7 @@ ul#nav li a {
    padding: 0;
    width: 90%;
 }
-#tweets #twitter li {
-   margin: 6px 0px 18px 0;
-   line-height: 24px;
-}
-#tweets #twitter li span {
-   display: block;
-   font: 24px/48px raleway-semibold, Sans-serif;
-   margin-bottom: 12px;
-   color: #99A0A8;
-}
-#tweets #twitter li b a {
-   font: 18px/36px notosans-regular, Sans-serif;
-   color: #A4ABB2;
-   border: none;
-}
-#tweets .button {
-   padding: 6px 24px;
-}
+
 .logopolibang img{
    width: 100px;
    align-content: center;
@@ -272,10 +252,12 @@ ul#nav li a {
 .motto{
    text-align: center;
    font-size: 45px;
-
-   
 }
-
+.kata{
+   font-size: 30px;
+   text-align: center;
+   font-style: italic;
+}
 /* ------------------------------------------------------------------ */
 /* h. Blog
 /* ------------------------------------------------------------------ */
@@ -378,8 +360,8 @@ ul#nav li a {
 /* ------------------------------------------------------------------ */
 
 footer {
-   margin-top: 66px;
-   margin-bottom: 84px;
+   margin-top: 30opx;
+   margin-bottom: 30px;
    font-size: 14px;
 }
 

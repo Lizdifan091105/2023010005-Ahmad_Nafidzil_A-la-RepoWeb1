@@ -1,0 +1,197 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* umum */
+/* Gaya untuk body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Warna latar belakang lembut */
+    color: #333; /* Warna teks utama */
+    line-height: 1.6;
+}
+
+/* Gaya Header */
+header {
+    background-color: #4CAF50; /* Hijau lembut */
+    color: white; /* Teks putih */
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 10px; /* Membuat sudut gambar melengkung */
+}
+
+/* Gaya Navigasi */
+nav {
+    background-color: #2C3E50; /* Biru tua */
+    padding: 10px ;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Warna teks */
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50; /* Warna hijau saat di-hover */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    background: white;
+    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    border-radius: 10px; /* Sudut melengkung */
+    
+}
+
+main h2 {
+    color: #4CAF50; /* Hijau lembut */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+main p {
+    color: #555; /* Abu-abu untuk teks deskripsi */
+}
+
+/* Footer */
+footer {
+    background-color: #2C3E50; /* Biru tua */
+    color: white; /* Teks putih */
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Popup Login */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Latar belakang hitam transparan */
+    display: none; /* Sembunyikan overlay secara default */
+    z-index: 999;
+}
+
+#login-popup {
+    display: none; /* Sembunyikan popup secara default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* Warna putih untuk kotak */
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Pastikan berada di atas overlay */
+}
+
+/* Tombol Tutup */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #E74C3C; /* Merah terang */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.close-btn:hover {
+    background-color: #C0392B; /* Merah gelap */
+}
+
+/* Input dan Tombol Form */
+#login-popup input[type="text"],
+#login-popup input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #BDC3C7; /* Border abu-abu lembut */
+    border-radius: 5px;
+}
+
+#login-popup button {
+    background-color: #4CAF50; /* Hijau lembut */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#login-popup button:hover {
+    background-color: #45A049; /* Hijau lebih gelap saat di-hover */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        width: 95%;
+    }
+}
+/* content halaman profil */
+main .section {
+    flex: 1; /* Membagi ruang secara merata */
+    display: flex;
+    min-width: 200px; /* Menentukan lebar minimum setiap kolom */
+    padding: 20px;
+    box-sizing: border-box; /* Menghitung padding dalam lebar */
+    border-radius: 10px; /* Sudut melengkung */
+    justify-content: space-between;
+
+}
+.datadiri{
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: space-between; /* Memisahkan bagian kanan dan kiri */
+    align-items: flex-start; /* Pastikan konten sejajar di bagian atas */
+    padding: 20px;
+    gap: 20px; /* Memberi jarak antar bagian */
+    width: 90%; /* Lebar kontainer utama */
+    margin: 20px auto; /* Pusatkan konten secara horizontal */
+}
+
+.section img{
+    width: 240px;
+}
