@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Utama</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>gambar</h1>
+        <img src="images/header.jpg" alt="Header Image">
+    </header>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="content.html">Konten</a></li>
+            <li><a href="picture.html">Picture</a></li>
+            <li><a href="#login" onclick="showLogin()">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Login Popup -->
+    <div id="overlay"></div>
+    <div id="login-popup">
+        <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
+        <h3>Form Login</h3>
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section class="content">
+            <h2>Konten Tertata</h2>
+            <p>Ini adalah bagian konten yang bisa Anda sesuaikan dengan minat Anda masing-masing. Bisa berupa teks, artikel, atau informasi lainnya.</p>
+        </section>
+        <main class="gallery-container">
+            <div class="gallery-item">
+                <a href="https://example.com/page1" target="_blank">
+                    <img src="image1.jpg" alt="Gambar 1">
+                    <p>Deskripsi singkat untuk gambar 1</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://example.com/page2" target="_blank">
+                    <img src="image2.jpg" alt="Gambar 2">
+                    <p>Deskripsi singkat untuk gambar 2</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://example.com/page3" target="_blank">
+                    <img src="image3.jpg" alt="Gambar 3">
+                    <p>Deskripsi singkat untuk gambar 3</p>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <a href="https://example.com/page1" target="_blank">
+                    <img src="image1.jpg" alt="Gambar 1">
+                    <p>Deskripsi singkat untuk gambar 1</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo">
+            <img src="images/polibang.png" alt="logo polibang">
+        </div>
+        <div class="copyright">
+            <p>2023010005</p>
+            <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
+        </div>
+    </footer>
+
+    <script>
+        function showLogin() {
+            document.getElementById('login-popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeLogin() {
+            document.getElementById('login-popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                alert('Kamu sudah login');
+                closeLogin(); // Menutup popup setelah login
+            } else {
+                alert('Harap isi username dan password!');
+            }
+        }
+    </script>
+</body>
+</html>

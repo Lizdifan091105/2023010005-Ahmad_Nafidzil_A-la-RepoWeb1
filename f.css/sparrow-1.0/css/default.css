@@ -115,8 +115,6 @@ table {
    border-collapse: collapse;
    border-spacing: 0;
 }
-
-
 /* ------------------------------------------------------------------ */
 /* c. Default and Basic Styles
       Adapted from:
@@ -162,7 +160,7 @@ h3 { font-size: 24px; line-height: 30px; margin-bottom: 12px; }
 h4 { font-size: 21px; line-height: 30px; margin-bottom: 6px; }
 h5 { font-size: 18px; line-height: 30px; }
 h6 { font-size: 14px; line-height: 30px; }
-.subheader { }
+
 
 p { margin: 0 0 30px 0; }
 p img { margin: 0; }
@@ -213,44 +211,6 @@ blockquote cite:before { content: "\2014 \0020"; }
 blockquote cite a,
 blockquote cite a:visited { color: #8B9798; border: none }
 
-/* ---------------------------------------------------------------------
-/*  Pull Quotes Markup
-/*
-    <aside class="pull-quote">
-		<blockquote>
-			<p></p>
-		</blockquote>
-	 </aside>
-/*
-/* --------------------------------------------------------------------- */
-.pull-quote {
-   position: relative;
-	padding: 18px 30px 18px 0px;
-}
-.pull-quote:before,
-.pull-quote:after {
-	height: 1em;
-	opacity: 0.45;
-	position: absolute;
-	font-size: 80px;
-   font-family: Arial, Sans-Serif;
-}
-.pull-quote:before {
-	content: "\201C";
-	top:  33px;
-	left: 0;
-}
-.pull-quote:after {
-	content: '\201D';
-	bottom: -33px;
-	right: 0;
-}
-.pull-quote blockquote {
-   margin: 0;
-}
-.pull-quote blockquote:before {
-   content: none;
-}
 
 /* Abbreviations */
 abbr {
@@ -394,52 +354,6 @@ dd { margin: 0 0 0 20px; }
 	content: counter(definitions, decimal) ". ";
 }
 
-/* Pagination */
-.pagination {
-   margin: 36px auto;
-   text-align: center;
-}
-.pagination ul li {
-   display: inline-block;
-   margin: 0;
-   padding: 0;
-}
-.pagination .page-numbers {
-   font: 15px/18px notosans-bold, sans-serif;
-   display: inline-block;
-   padding: 6px 10px;
-   margin-right: 3px;
-   margin-bottom: 6px;
-	color: #6E757C;
-	background-color: #E6E8EB;
-
-	-webkit-transition: all 200ms ease-in-out;
-	-moz-transition: all 200ms ease-in-out;
-	-o-transition: all 200ms ease-in-out;
-	-ms-transition: all 200ms ease-in-out;
-	transition: all 200ms ease-in-out;
-
-   -moz-border-radius: 3px;
-   -webkit-border-radius: 3px;
-   -khtml-border-radius: 3px;
-	border-radius: 3px;
-}
-.pagination .page-numbers:hover {
-   background: #838A91;
-   color: #fff;
-}
-.pagination .current,
-.pagination .current:hover {
-   background-color: #11ABB0;
-   color: #fff;
-}
-.pagination .inactive,
-.pagination .inactive:hover {
-   background-color: #E6E8EB;
-	color: #A9ADB2;
-}
-.pagination .prev, .pagination .next {}
-
 /*  5. Images  --------------------------------------------------------- */
 
 img {
@@ -518,69 +432,6 @@ input::-moz-focus-inner {
 }
 
 
-/*  7. Forms  --------------------------------------------------------- */
-
-form { margin-bottom: 24px; }
-fieldset { margin-bottom: 24px; }
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-textarea,
-select {
-   display: block;
-   padding: 18px 15px;
-   margin: 0 0 24px 0;
-   border: 0;
-   outline: none;
-   vertical-align: middle;
-   min-width: 260px;
-	max-width: 100%;
-   font-size: 15px;
-   line-height: 24px;
-	color: #647373;
-	background: #D3D9D9;
-
-   -moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px;
-}
-
-/* select { padding: 0;
-   width: 220px;
-   } */
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-   color: #B3B7BC;
-	background-color: #3d4145;
-}
-
-textarea { min-height: 200px; }
-
-label,
-legend {
-   font: 16px/24px notosans-bold, sans-serif;
-	margin: 12px 0;
-   color: #3d4145;
-   display: block;
-}
-label span,
-legend span {
-	color: #8B9798;
-   font: 14px/24px notosans-regular, sans-serif;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-    font-size: 15px;
-    color: #737373;
-}
-
-input[type="checkbox"] { display: inline; }
 
 /* ------------------------------------------------------------------ */
 /* d. Grid

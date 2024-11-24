@@ -69,10 +69,6 @@ img { border-radius: 3px; }
    margin-bottom: 18px;
 }
 
-
-
-
-
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
 /* ------------------------------------------------------------------ */
@@ -82,8 +78,6 @@ header {
    width: 100%;
    background: #383232 url(../images/header-bg.jpg);
 }
-
-
 /* header logo */
 header .logo {
    position: absolute;
@@ -140,8 +134,6 @@ ul#nav li {
 
 /* Links */
 ul#nav li a {
-
-
    display: inline-block;
    padding: 8px 11px;
    line-height: 32px;
@@ -151,8 +143,6 @@ ul#nav li a {
 }
 
 
-/* adds down arrow */
-
 /* ------------------------------------------------------------------ */
 /* c. Intro Section - Main Page
 /* ------------------------------------------------------------------ */
@@ -161,7 +151,6 @@ ul#nav li a {
 
 /* Flex Slider
 /* ------------------------------------------------------------------ */
-
 .flexslider {
    position: relative;
    zoom: 1;
@@ -193,9 +182,6 @@ ul#nav li a {
    margin: 12px 8% 0;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .3);
 }
-
-
-
 /* ------------------------------------------------------------------ */
 /* d. Info Section - Main Page
 /* ------------------------------------------------------------------ */
@@ -262,9 +248,6 @@ ul#nav li a {
 /* h. Blog
 /* ------------------------------------------------------------------ */
 
-
-
-
 /* post-nav */
 .post-nav {
    margin: 24px 0;
@@ -272,8 +255,6 @@ ul#nav li a {
    border-top: 1px solid #E0E0E0;
    font: 16px/30px notosans-regular, sans-serif;
 }
-
-
 .ukm-olahraga img{
    width: 400px;
 }
@@ -282,41 +263,6 @@ ul#nav li a {
 /* ------------------------------------------------------------------ */
 /* i. Porfolio
 /* ------------------------------------------------------------------ */
-
-.portfolio section {
-   padding-top: 24px;
-   padding-bottom: 30px;
-}
-.portfolio .entry-media img {
-   margin-bottom: 24px;
-}
-.portfolio .entry-details {
-   font-size: 15px;
-   margin-bottom: 24px;
-   padding-right: 30px;
-}
-.portfolio .entry-excerpt {
-   font: 20px/36px raleway-regular, sans-serif;
-   color: #9FA5AD;
-}
-.portfolio .entry-details h1 {
-   font: 30px/42px raleway-semibold, sans-serif;
-   margin-bottom: 18px;
-}
-.portfolio .portfolio-meta-list li {
-   line-height: 30px;
-   margin-bottom: 12px;
-}
-.portfolio .portfolio-meta-list li span {
-   font-family: notosans-bold, sans-serif;
-   display: block;
-   color: #313131;
-}
-.portfolio .post-nav {
-   margin-left: 18px;
-   margin-right: 18px;
-}
-
 .portfolio #portfolio-wrapper {
    margin-top: 6px;
 }
@@ -324,11 +270,6 @@ ul#nav li a {
 /* ------------------------------------------------------------------ */
 /* j. About
 /* ------------------------------------------------------------------ */
-
-/* Team Members */
-
-
-
 #data-diri img {
 	margin-bottom: 12px;
    width: 50%;
@@ -337,17 +278,9 @@ ul#nav li a {
 #data-diri ol{
   list-style: none;
 }
-
-
-
 /* ------------------------------------------------------------------ */
 /* k. Contact
 /* ------------------------------------------------------------------ */
-
-
-
-
-
 #image-loader {
    display: none;
    position: relative;
@@ -364,7 +297,6 @@ footer {
    margin-bottom: 30px;
    font-size: 14px;
 }
-
 
 /* social links */
 footer .footer-social {

@@ -13,8 +13,8 @@
     </header>
     <nav>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="profil.html">Profile</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
             <li><a href="content.html">Konten</a></li>
             <li><a href="picture.html">Picture</a></li>
             <li><a href="#login" onclick="showLogin()">Login</a></li>
@@ -29,8 +29,8 @@
     <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
     <h3>Form Login</h3>
     <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="text" id="username" placeholder="Username" >
+        <input type="password" id="password" placeholder="Password" >
         <button type="submit">Login</button>
     </form>
 </div>
@@ -62,11 +62,20 @@
 
     </nav>
     <main>
-        <h2>Selamat Datang di Website Kami</h2>
+        <div class="firstcontent">
+            <h1>Hai saya Ahmad nafidzil A'la</h1>
+            <h2>Selamat Datang di website saya</h2>
         <p>Silakan pilih menu untuk melihat konten lebih lanjut.</p>
+        </div>
     </main>
     <footer>
-        <p>© 2024 Polibang | NIM: 12345678 | Dibuat Tahun 2024</p>
+        <div class="logo">
+            <img src="images/polibang.png" alt="logo polibang">
+        </div>
+        <div class="copyright">
+            <p>2023010005</p>
+            <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
+        </div>
     </footer>
    
 </body>

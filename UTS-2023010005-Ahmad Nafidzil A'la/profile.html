@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Utama</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Profil</h1>
+        <img src="images/header.jpg" alt="Header Image">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="content.html">Konten</a></li>
+            <li><a href="picture.html">Picture</a></li>
+            <li class="navlogin"><a href="#login" onclick="showLogin()">Login</a></li>
+            <li></li>
+            
+        </ul>
+         
+        <!-- Login Popup -->
+        <!-- Overlay Background -->
+<div id="overlay"></div>
+
+<!-- Login Popup -->
+<div id="login-popup">
+    <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
+    <h3>Form Login</h3>
+    <form id="login-form" onsubmit="handleLogin(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    function showLogin() {
+        document.getElementById('login-popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closeLogin() {
+        document.getElementById('login-popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function handleLogin(event) {
+        event.preventDefault(); // Mencegah form direfresh
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username && password) {
+            alert('Kamu sudah login');
+            closeLogin(); // Menutup popup setelah login
+        } else {
+            alert('Harap isi username dan password!');
+        }
+    }
+</script>
+
+    </nav>
+    <main class="main-content">
+        
+        <h2>Profil</h2>
+        
+        <p>Hai, Saya Ahmad nafidzil A'la seorang mahasiswa Semester 3 Prodi Rekayasa Perangkat lunak Politeknik Balekambang.Saya adalah individu yang berdedikasi dan selalu berusaha untuk terus berkembang, baik dalam keahlian teknis maupun kemampuan pribadi. Saya memiliki minat besar dalam Pemograman</p>
+        <p>berikut profil saya</p>
+        <div class="datadiri">
+            
+                <img src="images/foto sendiri.jpg" alt="">
+            </div>
+            <div class="section">
+                <ol>
+                    <li>Nama: Ahmad Nafidzil A'la</li>
+                    <li>NIM : 2023010005</li>
+                    <li>Kelas : RPL A 2023</li>
+                    <li>Tanggal Lahir:9 November  2005</li>
+                    <li>Alamat:Buaran RT 03 RW 01 Mayong Jepara</li>
+                    <li>Hobi: Membaca</li>
+                    <li>Cita-cita: programmer</li>
+                </ol>
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <div class="logo">
+            <img src="images/polibang.png" alt="logo polibang">
+        </div>
+        <div class="copyright">
+            <p>2023010005</p>
+            <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
+        </div>
+    </footer>
+   
+</body>
+</html>
