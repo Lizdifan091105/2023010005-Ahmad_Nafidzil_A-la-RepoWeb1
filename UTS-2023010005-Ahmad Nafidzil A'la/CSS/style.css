@@ -15,7 +15,7 @@ body {
 
 /* Gaya Header */
 header {
-    background-color: #4CAF50; /* Hijau lembut */
+    background-color: #a593e1; /* Hijau lembut */
     color: white; /* Teks putih */
     padding: 20px 10px;
     text-align: center;
@@ -23,7 +23,7 @@ header {
 }
 
 header img {
-    max-width: 100%;
+    max-width: 100px;
     height: auto;
     margin-top: 10px;
     border-radius: 10px; /* Membuat sudut gambar melengkung */
@@ -31,35 +31,53 @@ header img {
 
 /* Gaya Navigasi */
 nav {
-    background-color: #2C3E50; /* Biru tua */
-    padding: 20px ;
-}
-
-nav ul {
-    list-style: none;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C3E50;
+    color: white;
+}
+
+.main-nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.main-nav li {
+    margin-right: 20px; /* Memberikan jarak antar item menu */
     justify-content: center;
-    gap: 20px;
+}
+.main-nav li a{
+    text-decoration: none; /* Menghapus garis bawah default pada link */
+    color:white; /* Warna teks */
+    font-size: 16px; /* Ukuran font */
+    padding: 10px; /* Memberikan padding agar lebih klikabel */
+    border-radius: 5px; /* Membuat sudut link melengkung */
+    padding: 20px;
+    padding-top: 20px;
+}
+.login-nav {
+    list-style: none;
+    padding: 0;
 }
 
-nav ul li {
-    padding: 0 15px;
+.login-nav li {
+    margin-left: 30px; 
+    padding: 20px;
 }
 
-nav ul li a {
-    text-decoration: none;
+button {
+    background-color: #4CAF50; /* Warna latar belakang */
     color: white; /* Warna teks */
-    font-size: 16px;
-    padding: 10px 15px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
-.navlogin{
-    text-align: right;
-    align-items: right;
-}
-nav ul li a:hover {
-    background-color: #4CAF50; /* Warna hijau saat di-hover */
+
+button:hover {
+    background-color: #45a049; /* Warna latar belakang saat hover */
 }
 
 /* Main Content */
@@ -235,40 +253,23 @@ footer .logo img{
     width: 75%;
     border-radius: 5px;
 }
-
-
-
-
-.gallery-container {
-    display: flex;
-    flex-wrap: wrap;
+.image-gallery a{
+    text-decoration: none;
+}
+.image-gallery a img:hover {
+    transform: scale(1.1);
+}
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    justify-content: center;
-    padding: 20px;
+    justify-items: center;
 }
-
-.gallery-item {
-    background-color: white;
-    border: 1px solid #ddd;
+.image-gallery img {
+    max-width: 100%;
     border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
-}
 
-.gallery-item img {
-    width: 100%;
-    height: auto;
-}
 
-.gallery-item p {
-    margin: 10px;
-    font-size: 16px;
-    color: #555;
-}

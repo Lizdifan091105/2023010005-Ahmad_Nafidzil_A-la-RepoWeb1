@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +9,23 @@
 </head>
 <body>
     <header>
-        <h1>Profil</h1>
-        <img src="images/header.jpg" alt="Header Image">
+        <img src="images/polibang.png" alt="Header Image">
+        <h1>Home</h1>
+
     </header>
     <nav>
-        <ul>
+        <ul class="main-nav">
             <li><a href="index.html">Home</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a href="content.html">Konten</a></li>
+            <li><a href="content.html">content</a></li>
             <li><a href="picture.html">Picture</a></li>
-            <li class="navlogin"><a href="#login" onclick="showLogin()">Login</a></li>
-            <li></li>
-            
+            <li><a href="menubebas">menubebas</a></li>
         </ul>
-         
+        <ul class="login-nav">
+            <li><button onclick="showLogin()">Login</button></li>
+        </ul>
+    </nav>
+    
         <!-- Login Popup -->
         <!-- Overlay Background -->
 <div id="overlay"></div>
@@ -31,8 +35,8 @@
     <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
     <h3>Form Login</h3>
     <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="text" id="username" placeholder="Username" >
+        <input type="password" id="password" placeholder="Password" >
         <button type="submit">Login</button>
     </form>
 </div>
@@ -64,28 +68,27 @@
 
     </nav>
     <main class="main-content">
+
+    <h2>Profil</h2>
+    
+    <p>Hai, Saya Ahmad nafidzil A'la seorang mahasiswa Semester 3 Prodi Rekayasa Perangkat lunak Politeknik Balekambang.Saya adalah individu yang berdedikasi dan selalu berusaha untuk terus berkembang, baik dalam keahlian teknis maupun kemampuan pribadi. Saya memiliki minat besar dalam Pemograman</p>
+    <p>berikut profil saya</p>
+    <div class="datadiri">
         
-        <h2>Profil</h2>
-        
-        <p>Hai, Saya Ahmad nafidzil A'la seorang mahasiswa Semester 3 Prodi Rekayasa Perangkat lunak Politeknik Balekambang.Saya adalah individu yang berdedikasi dan selalu berusaha untuk terus berkembang, baik dalam keahlian teknis maupun kemampuan pribadi. Saya memiliki minat besar dalam Pemograman</p>
-        <p>berikut profil saya</p>
-        <div class="datadiri">
-            
-                <img src="images/foto sendiri.jpg" alt="">
-            </div>
-            <div class="section">
-                <ol>
-                    <li>Nama: Ahmad Nafidzil A'la</li>
-                    <li>NIM : 2023010005</li>
-                    <li>Kelas : RPL A 2023</li>
-                    <li>Tanggal Lahir:9 November  2005</li>
-                    <li>Alamat:Buaran RT 03 RW 01 Mayong Jepara</li>
-                    <li>Hobi: Membaca</li>
-                    <li>Cita-cita: programmer</li>
-                </ol>
-            </div>
+            <img src="images/foto sendiri.jpg" alt="">
         </div>
-        
+        <div class="section">
+            <ol>
+                <li>Nama: Ahmad Nafidzil A'la</li>
+                <li>NIM : 2023010005</li>
+                <li>Kelas : RPL A 2023</li>
+                <li>Tanggal Lahir:9 November  2005</li>
+                <li>Alamat:Buaran RT 03 RW 01 Mayong Jepara</li>
+                <li>Hobi: Membaca</li>
+                <li>Cita-cita: programmer</li>
+            </ol>
+        </div>
+    </div>
     </main>
     <footer>
         <div class="logo">
@@ -99,3 +102,24 @@
    
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
