@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Utama</title>
+    <title>Home | Ahmad Nafidzil A'la</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
             <li><a href="profile.html">Profile</a></li>
             <li><a href="content.html">content</a></li>
             <li><a href="picture.html">Picture</a></li>
-            <li><a href="menubebas">menubebas</a></li>
+            <li><a href="campus.html">campus</a></li>
         </ul>
         <ul class="login-nav">
             <li><button onclick="showLogin()">Login</button></li>
@@ -27,50 +27,50 @@
     
         <!-- Login Popup -->
         <!-- Overlay Background -->
-<div id="overlay"></div>
+        <div id="overlay"></div>
 
-<!-- Login Popup -->
-<div id="login-popup">
-    <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
-    <h3>Form Login</h3>
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" placeholder="Username" >
-        <input type="password" id="password" placeholder="Password" >
-        <button type="submit">Login</button>
-    </form>
-</div>
-
-<script>
-    function showLogin() {
-        document.getElementById('login-popup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-    }
-
-    function closeLogin() {
-        document.getElementById('login-popup').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
-
-    function handleLogin(event) {
-        event.preventDefault(); // Mencegah form direfresh
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (username && password) {
-            alert('Kamu sudah login');
-            closeLogin(); // Menutup popup setelah login
-        } else {
-            alert('Harap isi username dan password!');
-        }
-    }
-</script>
+        <!-- Login Popup -->
+        <div id="login-popup">
+            <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
+            <h3>Form Login</h3>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Username" >
+                <input type="password" id="password" placeholder="Password" >
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        
+        <script>
+            function showLogin() {
+                document.getElementById('login-popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closeLogin() {
+                document.getElementById('login-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        
+            function handleLogin(event) {
+                event.preventDefault(); // Mencegah form direfresh
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+        
+                if (username && password) {
+                    alert('Kamu sudah login');
+                    closeLogin(); // Menutup popup setelah login
+                } else {
+                    alert('Harap isi username dan password!');
+                }
+            }
+        </script>
 
     </nav>
     <main>
         <div class="firstcontent">
             <h1>Hai saya Ahmad nafidzil A'la</h1>
             <h2>Selamat Datang di website saya</h2>
-        <p>Silakan pilih menu untuk melihat konten lebih lanjut.</p>
+        <p>Ayo jelajahi website saya klik menu</p>
         </div>
     </main>
     <footer>
@@ -82,6 +82,6 @@
             <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
         </div>
     </footer>
-   
+
 </body>
 </html>

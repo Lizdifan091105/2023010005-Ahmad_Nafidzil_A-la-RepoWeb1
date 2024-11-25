@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>campus</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="images/polibang.png" alt="Header Image">
+        <h1>campus</h1>
+
+    </header>
+    <nav>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="content.html">content</a></li>
+            <li><a href="picture.html">Picture</a></li>
+            <li><a href="campus.html">campus</a></li>
+        </ul>
+        <ul class="login-nav">
+            <li><button onclick="showLogin()">Login</button></li>
+        </ul>
+    </nav>
+    
+        <!-- Login Popup -->
+        <!-- Overlay Background -->
+        <div id="overlay"></div>
+        <!-- Login Popup -->
+        <div id="login-popup">
+            <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
+            <h3>Form Login</h3>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Username" >
+                <input type="password" id="password" placeholder="Password" >
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        
+        <script>
+            function showLogin() {
+                document.getElementById('login-popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closeLogin() {
+                document.getElementById('login-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        
+            function handleLogin(event) {
+                event.preventDefault(); // Mencegah form direfresh
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+        
+                if (username && password) {
+                    alert('Kamu sudah login');
+                    closeLogin(); // Menutup popup setelah login
+                } else {
+                    alert('Harap isi username dan password!');
+                }
+            }
+        </script>
+    </nav>
+    <main class="main-content">
+
+    <h2>Profil campus</h2>
+    
+    <p align="justify">Politeknik Balekambang merupakan salah satu lembaga Pendidikan Tinggi Vokasi yang dikelola oleh Pondok Pesantren Roudlotul Mubtadiin Balekambang Gemiring Lor Nalumsari Jepara. Sebuah pesantren yang sudah ada sebelum Indonesia merdeka. Pesantren ini berdiri pada tahun 1884 didirikan oleh Hadrlotus Syaikh KH. Hasbulloh. </p> <br>
+            <img src="images/header1.jpg" alt="">
+        
+    </div>
+    </main>
+    <footer>
+        <div class="logo">
+            <img src="images/polibang.png" alt="logo polibang">
+        </div>
+        <div class="copyright">
+            <p>2023010005</p>
+            <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

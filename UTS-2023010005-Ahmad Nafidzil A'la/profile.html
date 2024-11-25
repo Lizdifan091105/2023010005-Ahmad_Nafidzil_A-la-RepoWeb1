@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Utama</title>
+    <title>profile</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <img src="images/polibang.png" alt="Header Image">
-        <h1>Home</h1>
+        <h1>Profile</h1>
 
     </header>
     <nav>
@@ -19,7 +19,7 @@
             <li><a href="profile.html">Profile</a></li>
             <li><a href="content.html">content</a></li>
             <li><a href="picture.html">Picture</a></li>
-            <li><a href="menubebas">menubebas</a></li>
+            <li><a href="campus.html">campus</a></li>
         </ul>
         <ul class="login-nav">
             <li><button onclick="showLogin()">Login</button></li>
@@ -28,51 +28,49 @@
     
         <!-- Login Popup -->
         <!-- Overlay Background -->
-<div id="overlay"></div>
-
-<!-- Login Popup -->
-<div id="login-popup">
-    <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
-    <h3>Form Login</h3>
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" placeholder="Username" >
-        <input type="password" id="password" placeholder="Password" >
-        <button type="submit">Login</button>
-    </form>
-</div>
-
-<script>
-    function showLogin() {
-        document.getElementById('login-popup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-    }
-
-    function closeLogin() {
-        document.getElementById('login-popup').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
-
-    function handleLogin(event) {
-        event.preventDefault(); // Mencegah form direfresh
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (username && password) {
-            alert('Kamu sudah login');
-            closeLogin(); // Menutup popup setelah login
-        } else {
-            alert('Harap isi username dan password!');
-        }
-    }
-</script>
-
+        <div id="overlay"></div>
+        <!-- Login Popup -->
+        <div id="login-popup">
+            <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
+            <h3>Form Login</h3>
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <input type="text" id="username" placeholder="Username" >
+                <input type="password" id="password" placeholder="Password" >
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        
+        <script>
+            function showLogin() {
+                document.getElementById('login-popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closeLogin() {
+                document.getElementById('login-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        
+            function handleLogin(event) {
+                event.preventDefault(); // Mencegah form direfresh
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+        
+                if (username && password) {
+                    alert('Kamu sudah login');
+                    closeLogin(); // Menutup popup setelah login
+                } else {
+                    alert('Harap isi username dan password!');
+                }
+            }
+        </script>
     </nav>
     <main class="main-content">
 
     <h2>Profil</h2>
     
-    <p>Hai, Saya Ahmad nafidzil A'la seorang mahasiswa Semester 3 Prodi Rekayasa Perangkat lunak Politeknik Balekambang.Saya adalah individu yang berdedikasi dan selalu berusaha untuk terus berkembang, baik dalam keahlian teknis maupun kemampuan pribadi. Saya memiliki minat besar dalam Pemograman</p>
-    <p>berikut profil saya</p>
+    <p>Hai, Saya Ahmad nafidzil A'la seorang mahasiswa Semester 3 Prodi Rekayasa Perangkat lunak Politeknik Balekambang.Saya adalah individu yang berdedikasi dan selalu berusaha untuk terus berkembang, baik dalam keahlian teknis maupun kemampuan pribadi. Saya memiliki minat besar dalam Pemograman</p><br>
+    <p>berikut profil saya</p><br>
     <div class="datadiri">
         
             <img src="images/foto sendiri.jpg" alt="">
@@ -99,7 +97,6 @@
             <p>Copyright &copy; Ahmad Nafidzil a'la 2024</p>
         </div>
     </footer>
-   
 </body>
 </html>
 

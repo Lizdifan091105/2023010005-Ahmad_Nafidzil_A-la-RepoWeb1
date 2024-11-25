@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Utama</title>
+    <title>Picture</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <img src="images/polibang.png" alt="Header Image">
-        <h1>Home</h1>
+        <h1>Picture</h1>
 
     </header>
     <nav>
@@ -19,53 +19,39 @@
             <li><a href="profile.html">Profile</a></li>
             <li><a href="content.html">content</a></li>
             <li><a href="picture.html">Picture</a></li>
-            <li><a href="menubebas">menubebas</a></li>
+            <li><a href="campus.html">campus</a></li>
         </ul>
         <ul class="login-nav">
             <li><button onclick="showLogin()">Login</button></li>
         </ul>
-    </nav>
+    
     
         <!-- Login Popup -->
         <!-- Overlay Background -->
-<div id="overlay"></div>
-
-<!-- Login Popup -->
-<div id="login-popup">
-    <span class="close-btn" onclick="closeLogin()">&#x2716;</span>
-    <h3>Form Login</h3>
-    <form id="login-form" onsubmit="handleLogin(event)">
-        <input type="text" id="username" placeholder="Username" >
-        <input type="password" id="password" placeholder="Password" >
-        <button type="submit">Login</button>
-    </form>
-</div>
-
-<script>
-    function showLogin() {
-        document.getElementById('login-popup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
-    }
-
-    function closeLogin() {
-        document.getElementById('login-popup').style.display = 'none';
-        document.getElementById('overlay').style.display = 'none';
-    }
-
-    function handleLogin(event) {
-        event.preventDefault(); // Mencegah form direfresh
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (username && password) {
-            alert('Kamu sudah login');
-            closeLogin(); // Menutup popup setelah login
-        } else {
-            alert('Harap isi username dan password!');
-        }
-    }
-</script>
-
+        <script>
+            function showLogin() {
+                document.getElementById('login-popup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        
+            function closeLogin() {
+                document.getElementById('login-popup').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            }
+        
+            function handleLogin(event) {
+                event.preventDefault(); // Mencegah form direfresh
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+        
+                if (username && password) {
+                    alert('Kamu sudah login');
+                    closeLogin(); // Menutup popup setelah login
+                } else {
+                    alert('Harap isi username dan password!');
+                }
+            }
+        </script>
     </nav>
     <main class="main-content">
         <h2>Galeri Gambar</h2><br>
@@ -74,18 +60,17 @@
         <a href="https://www.polibang.ac.id/" target="_blank">
         <img src="images/polibang.png" alt="Gambar 1">
         </a>
-        <a href="https://id.wikipedia.org/wiki/Bulan" target="_blank">
+        <a href="https://unsplash.com/photos/full-moon-vGCErDhrc3E" target="_blank">
             <img src="images/alexander-andrews-vGCErDhrc3E-unsplash.jpg" alt="Gambar 2">
         </a>
         <a href="https://www.instagram.com/alaahmadnafidzil/" target="_blank">
-            <img src="" alt="Gambar 3">
+            <img src="images/ig.jpg" alt="Gambar 3">
         </a>
         <a href="https://github.com/Lizdifan091105" target="_blank">
-            <img src="images/image4.jpg" alt="Gambar 4">
+            <img src="images/github.jpg" alt="Gambar 4">
         </a>
-        <a href="https://www.youtube.com" target="_blank">
-            <img src="images/image5.jpg" alt="Gambar 5">
-        </div>
+        
+        
     </main>
     <footer>
         <div class="logo">

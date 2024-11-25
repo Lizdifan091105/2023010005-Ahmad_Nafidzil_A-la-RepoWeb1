@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* umum */
@@ -15,18 +14,16 @@ body {
 
 /* Gaya Header */
 header {
-    background-color: #a593e1; /* Hijau lembut */
+    background-color: #0b317e; 
     color: white; /* Teks putih */
     padding: 20px 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan lembut */
 }
 
 header img {
-    max-width: 100px;
+    width: 100px;
     height: auto;
     margin-top: 10px;
-    border-radius: 10px; /* Membuat sudut gambar melengkung */
 }
 
 /* Gaya Navigasi */
@@ -41,12 +38,10 @@ nav {
 .main-nav {
     display: flex;
     list-style: none;
-    padding: 0;
 }
 
 .main-nav li {
     margin-right: 20px; /* Memberikan jarak antar item menu */
-    justify-content: center;
 }
 .main-nav li a{
     text-decoration: none; /* Menghapus garis bawah default pada link */
@@ -55,25 +50,25 @@ nav {
     padding: 10px; /* Memberikan padding agar lebih klikabel */
     border-radius: 5px; /* Membuat sudut link melengkung */
     padding: 20px;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 .login-nav {
     list-style: none;
-    padding: 0;
 }
 
 .login-nav li {
     margin-left: 30px; 
-    padding: 20px;
+    padding: 10px;
 }
 
 button {
     background-color: #4CAF50; /* Warna latar belakang */
     color: white; /* Warna teks */
     border: none;
-    padding: 10px 20px;
+    padding:  20px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 button:hover {
@@ -83,26 +78,20 @@ button:hover {
 /* Main Content */
 main {
     background: #5a5555 url(../images/nasa--hI5dX2ObAs-unsplash.jpg);
-    width: 100%;
-    height: auto;
+    width: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 75px;
-    padding: 20px;
-    width: 100%;
 
 }
 .main-content{
     background: #5a5555 url(../images/greg-rakozy-0LU4vO5iFpM-unsplash.jpg);
-    width: 100%;
-    height: auto;
+    width: auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 75px;
-    padding: 20px;
-    width: 100%;
+    
 
 }
 
@@ -125,6 +114,7 @@ main .firstcontent{
 }
 main li {
     margin-left: 30px;
+    padding: 10px;
 }
 .firstcontent{
     text-align: center;
@@ -264,6 +254,7 @@ footer .logo img{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     justify-items: center;
+    padding: 100px;
 }
 .image-gallery img {
     max-width: 100%;
@@ -272,4 +263,10 @@ footer .logo img{
 }
 
 
+.campus p{
+    text-align: justify;
 
+}
+.campus img{
+    width:500px;
+}
