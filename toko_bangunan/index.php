@@ -135,7 +135,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .custom-card:hover {
@@ -196,8 +196,12 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .produk {
+         display: block !important;
+    }
+
     .custom-card {
-        margin-bottom: 20px;
+         display: block !important;
     }
 
     .custom-layout {
@@ -275,11 +279,13 @@ footer {
 
 #contact {
     background-color: #f9f9f9;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 footer {
     background-color: #343a40;
     color: white;
+   
+    gap:1px;
 }
 
 footer a {
@@ -314,7 +320,7 @@ footer .fab:hover {
 <body>
     <!-- Navbar -->
  <header>
-    <nav id="navbar-example2" class="navbar navbar-expand-lg bg-info fixed-top px-3 mb-3 g-5">
+    <nav id="navbar-example2" class="navbar navbar-expand-lg bg-info fixed-top px-3 mb-3">
         <a class="navbar-brand text-white" href="index.php">Toko </a>
         <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -392,105 +398,68 @@ footer .fab:hover {
     </div>
 </section>
    
-<section id="produk" class="animated-section">
-    <div class="container my-5">
-        <h1 class="text-center mb-4 section-title">Produk Kami</h1>
+<div class="container my-5">
+    <h1 class="text-center mb-4 section-title">Produk Kami</h1>
 
-        <!-- Navbar Kategori sebagai Tab -->
-        <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
-            <!-- Semua Kategori -->
+    <!-- Navbar Kategori sebagai Tab -->
+    <ul class="nav nav-pills justify-content-center mb-4 flex-wrap" id="pills-tab" role="tablist">
+        <!-- Semua Kategori -->
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" 
+                type="button" role="tab" aria-controls="pills-all" aria-selected="true">
+                Semua Kategori
+            </button>
+        </li>
+        <!-- Kategori Spesifik -->
+        <?php while ($kategori = mysqli_fetch_assoc($categories)): ?>
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" 
-                    type="button" role="tab" aria-controls="pills-all" aria-selected="true">
-                    Semua Kategori
+                <button class="nav-link" id="pills-<?= $kategori['id'] ?>-tab" 
+                    data-bs-toggle="pill" data-bs-target="#pills-<?= $kategori['id'] ?>" 
+                    type="button" role="tab" aria-controls="pills-<?= $kategori['id'] ?>" 
+                    aria-selected="false">
+                    <?= $kategori['nama_kategori'] ?>
                 </button>
             </li>
-            <!-- Kategori Spesifik -->
-            <?php while ($kategori = mysqli_fetch_assoc($categories)): ?>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-<?= $kategori['id'] ?>-tab" 
-                        data-bs-toggle="pill" data-bs-target="#pills-<?= $kategori['id'] ?>" 
-                        type="button" role="tab" aria-controls="pills-<?= $kategori['id'] ?>" 
-                        aria-selected="false">
-                        <?= $kategori['nama_kategori'] ?>
-                    </button>
-                </li>
-            <?php endwhile; ?>
-        </ul>
+        <?php endwhile; ?>
+    </ul>
 
-        <!-- Tab Content -->
-        <div class="tab-content" id="pills-tabContent">
-            <!-- Semua Produk -->
-            <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
-                <div class="row g-4">
-                    <?php if (mysqli_num_rows($products) > 0): ?>
-                        <?php while ($product = mysqli_fetch_assoc($products)): ?>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="card custom-card mb-3 h-100" style="animation: fadeInUp 1s ease;">
-                                    <img src="assets/img/<?= $product['foto'] ?>" class="card-img-top" alt="<?= $product['nama_produk'] ?>">
-                                    <div class="card-body">
-                                        <h5 class="card-title highlight"><?= $product['nama_produk'] ?></h5>
-                                        <p class="card-text"><?= $product['deskripsi'] ?></p>
-                                        <p class="card-text text-success">Rp <?= number_format($product['harga'], 0, ',', '.') ?></p>
-                                        <p class="card-text text-muted"><?= $product['ketersediaan'] ?> </p>
-                                    </div>
+    <!-- Tab Content -->
+    <div class="tab-content" id="pills-tabContent">
+        <!-- Semua Produk -->
+        <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+            <div class="row g-4">
+                <?php if (mysqli_num_rows($products) > 0): ?>
+                    <?php while ($product = mysqli_fetch_assoc($products)): ?>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <div class="card custom-card mb-3 h-100" style="animation: fadeInUp 1s ease;">
+                                <img src="assets/img/<?= $product['foto'] ?>" class="card-img-top img-fluid" alt="<?= $product['nama_produk'] ?>">
+                                <div class="card-body">
+                                    <h5 class="card-title highlight"><?= $product['nama_produk'] ?></h5>
+                                    <p class="card-text"><?= $product['deskripsi'] ?></p>
+                                    <p class="card-text text-success">Rp <?= number_format($product['harga'], 0, ',', '.') ?></p>
+                                    <p class="card-text text-muted"><?= $product['ketersediaan'] ?> </p>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
-                    <?php else: ?>
-                        <p class="text-center">Tidak ada produk untuk kategori ini.</p>
-                    <?php endif; ?>
-                </div>
+                        </div>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <p class="text-center">Tidak ada produk untuk kategori ini.</p>
+                <?php endif; ?>
             </div>
-
-            <!-- Produk Per Kategori -->
-            <?php 
-            mysqli_data_seek($categories, 0); // Reset pointer categories
-            while ($kategori = mysqli_fetch_assoc($categories)): 
-                // Query produk berdasarkan kategori
-                $kategori_id = $kategori['id'];
-                $query_produk_kategori = "SELECT * FROM products WHERE kategori_id = $kategori_id";
-                $produk_kategori = mysqli_query($conn, $query_produk_kategori);
-            ?>
-                <div class="tab-pane fade" id="pills-<?= $kategori['id'] ?>" role="tabpanel" aria-labelledby="pills-<?= $kategori['id'] ?>-tab">
-                    <div class="row g-4">
-                        <?php if (mysqli_num_rows($produk_kategori) > 0): ?>
-                            <?php while ($product = mysqli_fetch_assoc($produk_kategori)): ?>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="card custom-card mb-3 h-100" style="animation: zoomInUp 1s ease;">
-                                        <img src="assets/img/<?= $product['foto'] ?>" class="card-img-top" alt="<?= $product['nama_produk'] ?>">
-                                        <div class="card-body">
-                                            <h5 class="card-title highlight"><?= $product['nama_produk'] ?></h5>
-                                            <p class="card-text"><?= $product['deskripsi'] ?></p>
-                                            <p class="card-text text-success">Rp <?= number_format($product['harga'], 0, ',', '.') ?></p>
-                                            <p class="card-text text-muted"><?= $product['ketersediaan'] ?> tersedia</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <p class="text-center">Tidak ada produk untuk kategori ini.</p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endwhile; ?>
         </div>
     </div>
-</section>
+</div>
 
-
-
-   <!-- Contact Section -->
-<section id="contact" class="vh-100 animated-section">
+<section id="contact" class="animated-section">
     <div class="container py-5">
         <h2 class="text-center mb-4" data-aos="fade-up">Contact Us</h2>
         <div class="row">
             <!-- Google Maps -->
-            <div class="col-md-6 mb-4" data-aos="fade-right">
+            <div class="col-md-6 mb-4 col-12" data-aos="fade-right">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18..." class="w-100" style="height:300px; border:0;" allowfullscreen=""></iframe>
             </div>
             <!-- Contact Form -->
-            <div class="col-md-6" data-aos="fade-left">
+            <div class="col-md-6 col-12" data-aos="fade-left">
                 <form>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
@@ -511,19 +480,19 @@ footer .fab:hover {
 
         <!-- Additional Contact Information -->
         <div class="row mt-5">
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Kontak Kami</h5>
                 <p><strong>Alamat:</strong> Jl. Contoh No.123, Jakarta, Indonesia</p>
                 <p><strong>Email:</strong> info@example.com</p>
                 <p><strong>Telepon:</strong> +62 123 456 789</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Jam Operasional</h5>
                 <p><strong>Senin - Jumat:</strong> 09.00 - 17.00</p>
                 <p><strong>Sabtu:</strong> 10.00 - 14.00</p>
                 <p><strong>Minggu:</strong> Tutup</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Sosial Media</h5>
                 <p><strong>Facebook:</strong> @example</p>
                 <p><strong>Instagram:</strong> @example</p>
@@ -533,17 +502,18 @@ footer .fab:hover {
     </div>
 </section>
 
-   <!-- Footer -->
-<footer class="bg-dark text-white py-4">
+
+  <section>
+  <footer class="bg-dark text-white ">
     <div class="container">
         <div class="row">
             <!-- Company Info -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Company Name</h5>
                 <p>We are committed to providing the best services to our customers.</p>
             </div>
             <!-- Quick Links -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
                     <li><a href="#produk" class="text-white">Products</a></li>
@@ -553,7 +523,7 @@ footer .fab:hover {
                 </ul>
             </div>
             <!-- Social Media -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-12">
                 <h5>Follow Us</h5>
                 <div>
                     <a href="https://facebook.com" class="text-white me-2" target="_blank">
@@ -574,6 +544,8 @@ footer .fab:hover {
     </div>
 </footer>
 
+  </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -590,7 +562,7 @@ footer .fab:hover {
 
             // AOS initialization
             AOS.init({
-                duration: 2000,
+                duration: 1000,
                 once: true,
             });
 
