@@ -1,15 +1,18 @@
 <?php
+// Variabel Global
+$nama = "Ahmad nafidzl A'la";
 
-$a ="Halo";
-$b ="Perkenalkan";
-$c = "Saya";
-$d ="ahmad";
-$e ="Nafidzil";
-$f = "a'la";
+function tampilkanNama() {
+    // Variabel Lokal
+    $nama = "Ahmad nafidzil";
+    
+    // Menampilkan nama lokal
+    echo "Nama Lokal: " . $nama . "<br>";
+    
+    // Mengakses variabel global dengan global keyword
+    global $nama;
+    echo "Nama Global: " . $nama . "<br>";
+}
 
-echo $a;
-echo $b;
-echo $c;
-echo $d;
-echo $e;
-echo $f;
+tampilkanNama();
+?>
