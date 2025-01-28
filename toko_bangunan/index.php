@@ -8,12 +8,9 @@ $query_kategori = "SELECT * FROM categories";
 $categories = mysqli_query($conn, $query_kategori);
 
 // Filter produk berdasarkan kategori (jika ada)
-$kategori_id = isset($_GET['kategori_id']) ? intval($_GET['kategori_id']) : null; // Sanitasi input
-if ($kategori_id) {
-    $query_produk = "SELECT * FROM products WHERE kategori_id = $kategori_id";
-} else {
+
     $query_produk = "SELECT * FROM products";
-}
+
 $products = mysqli_query($conn, $query_produk);
 
 // Periksa apakah ada error dalam query
@@ -27,9 +24,11 @@ if (!$categories || !$products) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Toko Bangunan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
   <style>
     /* General Styling */
@@ -39,9 +38,6 @@ body {
     color: #333;
 }
 
-.container {
-    padding: 20px;
-}
 
 /* Navbar */
 .navbar {
@@ -49,12 +45,21 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    height: 70px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #2f2f3f,
+        #2f2f2f 10px,
+        #1a1a1a 10px,
+        #1a1a1a 20px
+    );
+    background-size: 100% 20px;
+    background-position: 0 0;
+    transition: background-position 0.1s ease;
     z-index: 1000;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
-    
-    padding-left: 20px;
-    padding-right: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 
 .navbar.scrolled {
@@ -66,6 +71,18 @@ body {
     color: #ffc107 !important;
     text-shadow: 0px 2px 5px rgba(255, 193, 7, 0.7);
     transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+/* Warna navbar ketika hamburger ditekan */
+.navbar-collapse.show {
+    background-image: repeating-linear-gradient(
+        90deg,
+        #2f2f3f,
+        #2f2f2f 10px,
+        #1a1a1a 10px,
+        #1a1a1a 20px
+    );
+    background-size: 100% 20px;
+    background-position: 0 0;
 }
 
 /* Animations */
@@ -196,6 +213,13 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .tab-pane {
+    display: none; /* Disembunyikan secara default */
+}
+.tab-pane.active {
+    display: block !important; /* Tampilkan tab aktif */
+}
+
     .produk {
          display: block !important;
     }
@@ -208,11 +232,11 @@ body {
         flex-direction: column;
         height: auto;
     }
-/* 
+
     .responsive-bg {
         width: 100%;
         height: 50vh;
-    } */
+    }
 
     .custom-content {
         width: 100%;
@@ -286,6 +310,7 @@ footer {
     color: white;
    
     gap:1px;
+    padding:20px;
 }
 
 footer a {
@@ -321,7 +346,7 @@ footer .fab:hover {
     <!-- Navbar -->
  <header>
     <nav id="navbar-example2" class="navbar navbar-expand-lg bg-info fixed-top px-3 mb-3">
-        <a class="navbar-brand text-white" href="index.php">Toko </a>
+        <a class="navbar-brand text-white" >Toko </a>
         <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -397,58 +422,88 @@ footer .fab:hover {
         <img src="assets/img/679460129e3d57.95984859.jpg" alt="Toko Bangunan" class="responsive-image">
     </div>
 </section>
-   
-<div class="container my-5">
-    <h1 class="text-center mb-4 section-title">Produk Kami</h1>
-
-    <!-- Navbar Kategori sebagai Tab -->
-    <ul class="nav nav-pills justify-content-center mb-4 flex-wrap" id="pills-tab" role="tablist">
-        <!-- Semua Kategori -->
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" 
-                type="button" role="tab" aria-controls="pills-all" aria-selected="true">
-                Semua Kategori
-            </button>
-        </li>
-        <!-- Kategori Spesifik -->
-        <?php while ($kategori = mysqli_fetch_assoc($categories)): ?>
+<section id="produk" class="animated-section">
+    <div class="container my-5">
+        <!-- Tab Navigasi untuk Kategori -->
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-<?= $kategori['id'] ?>-tab" 
-                    data-bs-toggle="pill" data-bs-target="#pills-<?= $kategori['id'] ?>" 
-                    type="button" role="tab" aria-controls="pills-<?= $kategori['id'] ?>" 
-                    aria-selected="false">
-                    <?= $kategori['nama_kategori'] ?>
-                </button>
+                <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">Semua Produk</button>
             </li>
-        <?php endwhile; ?>
-    </ul>
+            <?php 
+            $categories = mysqli_query($conn, "SELECT * FROM categories");
+            if ($categories && mysqli_num_rows($categories) > 0):
+                while ($kategori = mysqli_fetch_assoc($categories)): ?>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-<?= $kategori['id'] ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?= $kategori['id'] ?>" type="button" role="tab" aria-controls="pills-<?= $kategori['id'] ?>" aria-selected="false">
+                            <?= $kategori['nama_kategori'] ?>
+                        </button>
+                    </li>
+                <?php endwhile; 
+            endif; ?>
+        </ul>
 
-    <!-- Tab Content -->
-    <div class="tab-content" id="pills-tabContent">
-        <!-- Semua Produk -->
-        <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
-            <div class="row g-4">
-                <?php if (mysqli_num_rows($products) > 0): ?>
-                    <?php while ($product = mysqli_fetch_assoc($products)): ?>
-                        <div class="col-12 col-sm-6 col-md-4">
-                            <div class="card custom-card mb-3 h-100" style="animation: fadeInUp 1s ease;">
-                                <img src="assets/img/<?= $product['foto'] ?>" class="card-img-top img-fluid" alt="<?= $product['nama_produk'] ?>">
-                                <div class="card-body">
-                                    <h5 class="card-title highlight"><?= $product['nama_produk'] ?></h5>
-                                    <p class="card-text"><?= $product['deskripsi'] ?></p>
-                                    <p class="card-text text-success">Rp <?= number_format($product['harga'], 0, ',', '.') ?></p>
-                                    <p class="card-text text-muted"><?= $product['ketersediaan'] ?> </p>
+        <!-- Konten Tab untuk Produk -->
+        <div class="tab-content" id="pills-tabContent">
+            <!-- Tab Semua Produk -->
+            <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab" tabindex="0">
+                <div class="row">
+                    <?php 
+                    $products = mysqli_query($conn, "SELECT * FROM products");
+                    if ($products && mysqli_num_rows($products) > 0):
+                        while ($product = mysqli_fetch_assoc($products)): ?>
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="card shadow-lg border-light rounded custom-card">
+                                    <img src="assets/img/<?= $product['foto'] ?>" class="card-img-top" alt="<?= $product['nama_produk'] ?>">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $product['nama_produk'] ?></h5>
+                                        <p class="card-text"><?= $product['deskripsi'] ?></p>
+                                        <p class="card-text text-success">Rp <?= number_format($product['harga'], 0, ',', '.') ?></p>
+                                        <p class="card-text"><small class="text-muted"><?= $product['ketersediaan'] ?></small></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <p class="text-center">Tidak ada produk untuk kategori ini.</p>
-                <?php endif; ?>
+                        <?php endwhile; 
+                    else: ?>
+                        <p class="text-center">Produk tidak ditemukan.</p>
+                    <?php endif; ?>
+                </div>
             </div>
+
+            <!-- Tab Kategori Tertentu -->
+            <?php 
+            $categories = mysqli_query($conn, "SELECT * FROM categories");
+            if ($categories && mysqli_num_rows($categories) > 0):
+                while ($kategori = mysqli_fetch_assoc($categories)): ?>
+                    <div class="tab-pane fade" id="pills-<?= $kategori['id'] ?>" role="tabpanel" aria-labelledby="pills-<?= $kategori['id'] ?>-tab" tabindex="0">
+                        <div class="row">
+                            <?php 
+                            $kategori_id = $kategori['id'];
+                            $query_produk_kategori = "SELECT * FROM products WHERE kategori_id = $kategori_id";
+                            $products_kategori = mysqli_query($conn, $query_produk_kategori);
+                            if ($products_kategori && mysqli_num_rows($products_kategori) > 0):
+                                while ($product_kategori = mysqli_fetch_assoc($products_kategori)): ?>
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                                        <div class="card shadow-lg border-light rounded custom-card">
+                                            <img src="assets/img/<?= $product_kategori['foto'] ?>" class="card-img-top" alt="<?= $product_kategori['nama_produk'] ?>">
+                                            <div class="card-body">
+                                                <h5 class="card-title"><?= $product_kategori['nama_produk'] ?></h5>
+                                                <p class="card-text"><?= $product_kategori['deskripsi'] ?></p>
+                                                <p class="card-text text-success">Rp <?= number_format($product_kategori['harga'], 0, ',', '.') ?></p>
+                                                <p class="card-text"><small class="text-muted"><?= $product_kategori['ketersediaan'] ?></small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endwhile; 
+                            else: ?>
+                                <p class="text-center">Produk untuk kategori ini tidak ditemukan.</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endwhile; 
+            endif; ?>
         </div>
     </div>
-</div>
+</section>
 
 <section id="contact" class="animated-section">
     <div class="container py-5">
@@ -456,25 +511,26 @@ footer .fab:hover {
         <div class="row">
             <!-- Google Maps -->
             <div class="col-md-6 mb-4 col-12" data-aos="fade-right">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18..." class="w-100" style="height:300px; border:0;" allowfullscreen=""></iframe>
+                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18..." class="w-100" style="height:300px; border:0;" allowfullscreen=""></iframe> -->
             </div>
             <!-- Contact Form -->
             <div class="col-md-6 col-12" data-aos="fade-left">
-                <form>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
-                        <label for="name">Nama Anda</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Email" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Pesan Anda" id="message" style="height: 100px" required></textarea>
-                        <label for="message">Pesan Anda</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Kirim</button>
-                </form>
+            <form method="POST" action="admin2/tambah_feedback.php">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" name="nama" placeholder="Nama Anda" required>
+        <label for="name">Nama Anda</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+        <label for="email">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Pesan Anda" id="message" name="pesan" style="height: 100px" required></textarea>
+        <label for="message">Pesan Anda</label>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Kirim</button>
+</form>
+
             </div>
         </div>
 
@@ -519,7 +575,7 @@ footer .fab:hover {
                     <li><a href="#produk" class="text-white">Products</a></li>
                     <li><a href="#contact" class="text-white">Contact Us</a></li>
                     <li><a href="#about" class="text-white">About Us</a></li>
-                    <li><a href="#services" class="text-white">Services</a></li>
+                    <li><a href="#home" class="text-white">Services</a></li>
                 </ul>
             </div>
             <!-- Social Media -->
@@ -546,8 +602,9 @@ footer .fab:hover {
 
   </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Navbar scroll effect
@@ -580,6 +637,20 @@ footer .fab:hover {
                 observer.observe(section);
             });
         });
+        document.addEventListener('DOMContentLoaded', function() {
+        const activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            const tab = new bootstrap.Tab(document.querySelector(activeTab));
+            tab.show();
+        }
+
+        const tabs = document.querySelectorAll('.nav-link');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                localStorage.setItem('activeTab', `#${tab.getAttribute('data-bs-target').substring(1)}-tab`);
+            });
+        });
+    });
     </script>
 </body>
 </html>

@@ -11,11 +11,11 @@ $query = "SELECT * FROM categories";
 $categories = mysqli_query($conn, $query);
 ?>
 <?php include "header.php"?>
-<div class="container my-5">
+<div class="container my-5 text-dark">
     <h1 class="text-center">Manajemen Kategori</h1>
    
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered text-dark">
             <thead class="table-dark">
                 <tr>
                     <th style="width: 5%;">No</th>

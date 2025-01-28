@@ -17,6 +17,8 @@ $products = mysqli_query($conn, $query);
     <div class="content bg-white p-3 rounded shadow-sm">
         <!-- Tambahkan wrapper dengan overflow scroll -->
         <div class="table-responsive">
+        <h1 class="text-center">Manajemen Daftar</h1>
+
             <table class="table table-striped table-hover">
                 <thead class="table-dark">
                     <tr>

@@ -28,23 +28,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login Admin</title>
     <style>
         body {
-            background-color: #f8f9fa;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradasi biru ungu */
             font-family: 'Arial', sans-serif;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
             max-width: 400px;
-            padding: 30px;
+            padding: 40px;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 100px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
 
         .btn-custom {
             background-color: #007bff;
             color: white;
             border: none;
+            transition: background-color 0.3s ease;
         }
 
         .btn-custom:hover {
@@ -54,11 +57,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .alert {
             margin-top: 10px;
         }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-floating > label {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <img src="logo.png" alt="Logo" class="logo"> <!-- Ganti dengan logo jika ada -->
     <h2 class="text-center mb-4">Login Admin</h2>
     <form method="POST">
         <div class="mb-3 form-floating">
@@ -81,5 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

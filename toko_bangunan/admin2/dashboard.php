@@ -9,18 +9,18 @@ if (!isset($_SESSION['admin'])) {
 }
 
 $query = "SELECT products.id, products.nama_produk, products.deskripsi, products.harga, 
-                 categories.nama_kategori, products.foto, products.ketersediaan 
-          FROM products 
-          LEFT JOIN categories ON products.kategori_id = categories.id";
+            categories.nama_kategori, products.foto, products.ketersediaan 
+            FROM products 
+            LEFT JOIN categories ON products.kategori_id = categories.id";
 
 $products = mysqli_query($conn, $query);
 ?>
 
 <?php include "header.php" ?> 
 
-                <!-- /.container-fluid -->
-           <!-- /.container-fluid -->
-           <div class="container-fluid my-4 px-4">
+                
+<div class="container-fluid my-4 px-4">
+    <h1 class="text-center text-dark">Selamat Datang di Dashbord</h1>
         <div class="content p-3 shadow-sm">
         <!-- Tambahkan wrapper dengan overflow scroll -->
             <div class="table-responsive">

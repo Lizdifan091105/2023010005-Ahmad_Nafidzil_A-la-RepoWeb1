@@ -7,6 +7,8 @@ $categories = mysqli_query($conn, $query_kategori);
 
 // Filter produk berdasarkan kategori (jika ada)
 $kategori_id = isset($_GET['kategori_id']) ? $_GET['kategori_id'] : null;
+
+
 if ($kategori_id) {
     $query_produk = "SELECT * FROM products WHERE kategori_id = $kategori_id";
 } else {
